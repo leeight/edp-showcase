@@ -11,11 +11,7 @@ var MyProcessor = {
     include: ['*.less'],
     name: 'MyProcessor',
     process: function(file, processContext, callback) {
-        setTimeout(function(){
-            callback();
-            if (Math.random() > 0.99)
-                throw new Error('MyProcessor');
-        }, 10);
+        callback();
     }
 }
 

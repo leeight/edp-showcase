@@ -12,7 +12,7 @@ define(
          * @inner
          */
         function requireConfigs() {
-            // require( '../plan/config' );
+            require( '../plan/config' );
             // require( '../report/config' );
         }
         
