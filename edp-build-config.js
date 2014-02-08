@@ -6,8 +6,22 @@ exports.output = path.resolve( __dirname, 'output' );
 var moduleEntries = 'html,htm,phtml,tpl,vm,js';
 var pageEntries = 'html,htm,phtml,tpl,vm';
 
+
+var MyProcessor = {
+    include: ['*.less'],
+    name: 'MyProcessor',
+    process: function(file, processContext, callback) {
+        setTimeout(function(){
+            callback();
+            if (Math.random() > 0.99)
+                throw new Error('MyProcessor');
+        }, 10);
+    }
+}
+
 exports.getProcessors = function () {
     return [ 
+        MyProcessor,
         new LessCompiler( {
             entryExtnames: pageEntries
         } ), 
@@ -16,7 +30,7 @@ exports.getProcessors = function () {
             configFile: 'module.conf',
             entryExtnames: moduleEntries
         } ), 
-        new JsCompressor(), 
+        // new JsCompressor(), 
         new PathMapper( {
             replacements: [
                 { type: 'html', tag: 'link', attribute: 'href', extnames: pageEntries },
@@ -26,7 +40,7 @@ exports.getProcessors = function () {
             ],
             from: 'src',
             to: 'asset'
-        } ) 
+        } )
     ];
 };
 
