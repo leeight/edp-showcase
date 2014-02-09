@@ -8,7 +8,7 @@ var pageEntries = 'html,htm,phtml,tpl,vm';
 
 
 var MyProcessor = {
-    include: ['*.less'],
+    exclude: ['*.png', '*.gif', '*.jpg', '*.js', '*.html', '*.css', '*.tpl', '/dep/*/*/*.less'],
     name: 'MyProcessor',
     process: function(file, processContext, callback) {
         callback();
