@@ -19,10 +19,12 @@ exports.getProcessors = function () {
     return [ 
         MyProcessor,
         new LessCompiler( {
+            exclude: ['dep/esf-ms/*/src/*.less'],
             entryExtnames: pageEntries
         } ), 
         new CssCompressor(),
         new ModuleCompiler( {
+            exclude: ['dep/etpl/*/src/main.js'],
             configFile: 'module.conf',
             entryExtnames: moduleEntries
         } ), 
