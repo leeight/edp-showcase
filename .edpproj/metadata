@@ -13,6 +13,7 @@
         "underscore": "1.x",
         "moment": "2.x",
         "esf-ms": "1.x",
-        "est": "1.x"
+        "est": "1.x",
+        "urijs": "1.x"
     }
 }

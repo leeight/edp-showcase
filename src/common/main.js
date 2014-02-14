@@ -33,11 +33,13 @@ define(
          * @inner
          */
         function init() {
-            
+            var URI = require('urijs');
+            console.log(URI);
 
             // 启动er
             require( 'er' ).start();
         }
+
 
         return {
             init: init
