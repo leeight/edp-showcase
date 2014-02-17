@@ -22,6 +22,7 @@ define(
         require( 'esui/Region' );
         require( 'esui/Schedule' );
         require( 'esui/Select' );
+        require( 'esui/SearchBox' );
         require( 'esui/Sidebar' );
         require( 'esui/Tab' );
         require( 'esui/Table' );

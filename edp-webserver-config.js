@@ -29,6 +29,16 @@ exports.getLocations = function () {
                 autoless()
             ]
         },
+        /*
+        {
+            location: /\.gif/,
+            handler: [
+                file(),
+                addRequestHeader({'Host': 'www.baidu.com'}),
+                proxy("www.baidu.com")
+            ]
+        },
+        */
         { 
             location: /\.less($|\?)/, 
             handler: [
