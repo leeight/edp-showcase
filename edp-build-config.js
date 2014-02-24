@@ -26,15 +26,20 @@ exports.getProcessors = function () {
         new ModuleCompiler( {
             exclude: ['dep/etpl/*/src/main.js'],
             configFile: 'module.conf',
-            entryExtnames: moduleEntries
+            entryExtnames: moduleEntries,
+            getCombineConfig: function( x ) {
+                x['common/main'] = 1;
+                return x;
+            }
         } ), 
-        new JsCompressor(),
+        // new JsCompressor(),
         new PathMapper( {
             replacements: [
                 { type: 'html', tag: 'link', attribute: 'href', extnames: pageEntries },
                 { type: 'html', tag: 'img', attribute: 'src', extnames: pageEntries },
                 { type: 'html', tag: 'script', attribute: 'src', extnames: pageEntries },
-                { extnames: moduleEntries, replacer: 'module-config' }
+                { extnames: moduleEntries, replacer: 'module-config' },
+                { extnames: 'less,css', replacer: 'css' },
             ],
             from: 'src',
             to: 'asset'
