@@ -19,7 +19,10 @@ exports.getProcessors = function () {
     return [ 
         MyProcessor,
         new LessCompiler( {
-            exclude: ['dep/esf-ms/*/src/*.less'],
+            exclude: [
+                'dep/esf-ms/*/src/*.less',
+                'example/*.less'
+            ],
             entryExtnames: pageEntries
         } ), 
         new CssCompressor(),
@@ -28,11 +31,21 @@ exports.getProcessors = function () {
             configFile: 'module.conf',
             entryExtnames: moduleEntries,
             getCombineConfig: function( x ) {
-                x['common/main'] = 1;
+                x['common/main'] = {
+                    exclude: [ 'esui/*', 'esui', 'esui/main' ]
+                }
                 return x;
             }
-        } ), 
+        } ),
         // new JsCompressor(),
+        new TplMerge({
+            exclude: [
+                'jsduck/meta/*.js',
+                'example/prettify/*.js',
+                'example/*.js',
+                'dep/etpl/*/src/main.js'
+            ]
+        }),
         new PathMapper( {
             replacements: [
                 { type: 'html', tag: 'link', attribute: 'href', extnames: pageEntries },
@@ -61,6 +74,7 @@ exports.exclude = [
     '/dep/*/*/package.json',
     '/edp-*',
     '/.edpproj',
+    'activex.*',
     '.svn',
     '.git',
     '.gitignore',

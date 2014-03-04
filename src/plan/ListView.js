@@ -6,6 +6,8 @@
 define( function ( require ) {
     // require template
     require( 'er/tpl!./list.tpl.html' );
+    require( 'er/tpl!./list.tpl.html' );
+    require( 'er/tpl!./list.tpl.html' );
 
     var UIView = require( 'ef/UIView' );
     
