@@ -19,31 +19,28 @@ exports.getProcessors = function () {
     return [ 
         MyProcessor,
         new LessCompiler( {
-            exclude: [
-                'dep/esf-ms/*/src/*.less',
-                'example/*.less'
+            fileset: [
+                'index.html',
+                'src/common/css/main.less'
             ],
             entryExtnames: pageEntries
         } ), 
         new CssCompressor(),
         new ModuleCompiler( {
-            exclude: ['dep/etpl/*/src/main.js'],
+            fileset: [ 'src/common/main.js' ],
             configFile: 'module.conf',
             entryExtnames: moduleEntries,
             getCombineConfig: function( x ) {
                 x['common/main'] = {
-                    exclude: [ 'esui/*', 'esui', 'esui/main' ]
+                    fileset: [ 'er/**', 'esui/**' ]
                 }
                 return x;
             }
         } ),
         // new JsCompressor(),
         new TplMerge({
-            exclude: [
-                'jsduck/meta/*.js',
-                'example/prettify/*.js',
-                'example/*.js',
-                'dep/etpl/*/src/main.js'
+            fileset: [
+                'src/common/main.js'
             ]
         }),
         new PathMapper( {
@@ -61,19 +58,19 @@ exports.getProcessors = function () {
 };
 
 exports.exclude = [
-    '/tool',
-    '/doc',
-    '/test',
-    '/module.conf',
-    '/dep/packages.manifest',
-    '/dep/*/*/test',
-    '/dep/*/*/doc',
-    '/dep/*/*/demo',
-    '/dep/*/*/tool',
-    '/dep/*/*/*.md',
-    '/dep/*/*/package.json',
-    '/edp-*',
-    '/.edpproj',
+    'tool',
+    'doc',
+    'test',
+    'module.conf',
+    'dep/packages.manifest',
+    'dep/*/*/test',
+    'dep/*/*/doc',
+    'dep/*/*/demo',
+    'dep/*/*/tool',
+    'dep/*/*/*.md',
+    'dep/*/*/package.json',
+    'edp-*',
+    '.edpproj',
     'activex.*',
     '.svn',
     '.git',

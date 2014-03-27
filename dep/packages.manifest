@@ -11,6 +11,11 @@
             "name": "er",
             "version": "3.1.0-alpha.6",
             "main": "main"
+        },
+        "3.1.0-alpha.8": {
+            "name": "er",
+            "version": "3.1.0-alpha.8",
+            "main": "main"
         }
     },
     "mini-event": {
@@ -25,12 +30,22 @@
             "name": "etpl",
             "version": "2.0.8",
             "main": "main"
+        },
+        "2.0.10": {
+            "name": "etpl",
+            "version": "2.0.10",
+            "main": "main"
         }
     },
     "esui": {
         "3.1.0-alpha.6": {
             "name": "esui",
             "version": "3.1.0-alpha.6",
+            "main": "main"
+        },
+        "3.1.0-alpha.8": {
+            "name": "esui",
+            "version": "3.1.0-alpha.8",
             "main": "main"
         }
     },
@@ -51,6 +66,11 @@
             "name": "moment",
             "version": "2.0.0",
             "main": "moment"
+        },
+        "2.0.1": {
+            "name": "moment",
+            "version": "2.0.1",
+            "main": "moment"
         }
     },
     "esf-ms": {
@@ -64,6 +84,11 @@
         "1.1.0": {
             "name": "est",
             "version": "1.1.0",
+            "main": "main"
+        },
+        "1.2.1": {
+            "name": "est",
+            "version": "1.2.1",
             "main": "main"
         }
     },
